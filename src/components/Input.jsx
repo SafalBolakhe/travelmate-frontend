@@ -6,31 +6,28 @@ export default function Input({ type, placeholder }) {
 
 const StyledInput = styled.input`
   background: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   border-radius: 2rem;
-  width: 80%;
+  width: 90%;
   height: 3rem;
   padding: 1rem;
   border: none;
   outline: none;
-  color: #3c354e;
   font-size: 1rem;
-  font-weight:bold;
+  font-weight:lighter;
+  
   &:focus{
-    display:inline-block;
+    display:block;
     box-shadow: 0 0 0 0.2rem #9abe0;
     backdrop-filter:blur(0.5px);
     border-radius:2rem;
    
-
-  }
-  &::placeholder{
-    color:#b9ebe099;
-    font-weight: 100;
-    font-size: 1 rem;
-    
-  }
   
+  &::placeholder{
+    color: black;
+    font-weight: lighter;
+    font-size: 1 rem;
+    opacity:50%;    
+  }
 
 `;
 

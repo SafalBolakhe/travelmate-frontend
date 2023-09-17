@@ -1,23 +1,25 @@
-.App {
+
+.main {
   text-align: center;
   background-size: cover;
   background-position: center;
   min-height: 100vh;
+  height: 10vh;
+  width: 45vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color:Black;
-  
-
-}
-h1{
-  margin-bottom: 30px;
-  font-family: 'Raleway', sans-serif;
 }
 
 
-.form-container {
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.signup_form {
   background: rgba(255, 255, 255, 0.30);
   backdrop-filter: blur(8.5px);
   padding: 20px;
@@ -25,31 +27,24 @@ h1{
   max-width: 400px;
   width: 100%;
 }
-.form-group {
-  margin-bottom: 10px;
-  font-size: 20px;
-  font-weight: bold;
-  
 
+.input_item {
+  position: relative;
+  margin-bottom: 20px;
 }
-.input-field {
-  width: 90%;
+
+.Input_boxes {
+  width: 100%;
   padding: 10px;
-  border: none;
-  background-color: rgba(255, 255, 255, 0.5);
-  color: black;
-  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
   border-radius: 2rem;
-  width: 90%;
-  height: 3rem;
-  padding: 1rem;
   border: none;
   outline: none;
-  font-size: rem;
-  font-weight:lighter;
 }
 
-.post-button {
+.login_button {
   background: linear-gradient(to right, #14163c 0%, #03217b 79%);
   text-transform: uppercase;
   letter-spacing: 0.2rem;
@@ -61,13 +56,28 @@ h1{
   cursor: pointer;
   transition: background-color 0.2s, transform 0.2s;
 }
+.login_button:hover {
+  background-color: #1c1f4e;
+  transform: scale(1.05); 
+}
+.login_button:active {
+  background-color: #0d0f32; 
+  opacity: 0.8; 
+}
 
-  .post-button:hover {
-    background-color: #1c1f4e;
-    transform: scale(1.05); 
-  }
-  .post-button:active {
-    background-color: #0d0f32; 
-    opacity: 0.8; 
-  }
+.login_button:hover {
+  background-color: #0056b3;
+}
 
+.signup {
+  margin-top: 20px;
+}
+
+.signup a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.signup a:hover {
+  text-decoration: underline;
+}

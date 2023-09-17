@@ -1,0 +1,90 @@
+/* chatroom.css */
+
+.chatroom-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 100vh;
+    min-height: 50vh;
+    
+  }
+  
+  .travel-description {
+    flex: 1;
+    margin-right: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+  }
+  
+  .travel-description h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .travel-description ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .travel-description li {
+    margin-bottom: 5px;
+  }
+  
+  .chat-ui {
+    justify-content:space-between;
+    flex: 2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+  }
+  
+  .chat-ui h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .chat-messages ul {
+    
+    list-style-type: none;
+    padding: 0;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .chat-messages li {
+    margin-bottom: 5px;
+  }
+  
+  .chat-input {
+    justify-content:space-between;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .chat-input input {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .chat-input button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .chat-input button:hover {
+    background-color: #0056b3;
+  }
+  

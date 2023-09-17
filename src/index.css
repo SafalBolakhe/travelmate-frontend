@@ -9,8 +9,45 @@ body{
     background-image: url('./images/travelling-image.jpg');
     background-size: cover;
     display: flex;
+    background-position: center;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    
 }
+.form-login{
+  
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
+    height: 10vh;
+    width: 50vh;
+    background: rgba(255, 255, 255, 0.30);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(0.5px);
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.4rem;
+    @media only screen and (max-width:320px)
+    width: 80vw;
+    height: 90vh;
+    
+    hr{
+      margin-buttons: 0.3rem;
+
+    }
+    h4{
+      font-size:small;
+    }
+  
+}
+.or{
+  border: none;
+  color: black;
+  font-weight:bold;
+  letter-spacing: 0.2rem;
+  margin-top: 0;
+  margin-bottom:0 ;
+  
+}
+  

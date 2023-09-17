@@ -1,67 +1,170 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
+import { BrowserRouter, Route, Routes, Link, redirect } from 'react-router-dom';
 import styled from 'styled-components';
-import Input from './components/Input';
 import EventPage from './pages/Event';
+import SignupPage from './components/SignupPage';
 import './index.css';
+import axios from 'axios';
+import { useEffect } from 'react';
+import Dashboard from './components/dashboard';
+import Confirmation from './pages/Confirmation';
+import Chatroom from './components/Chatroom';
 
 function App() {
+  const [formData, setFormData] = useState({
+    username: '',
+    password: '',
+  });
+  const [token, setToken] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(true);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+  
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // consollog(formData);
+    axios.post('http://localhost:3000/auth/login',{
+      username: JSON.stringify(formData.username),
+      password: formData.password
+    })
+      .then( async function (response) {
+        // console.log(response.data.accesstoken)
+        const token = await response.data.accesstoken; 
+        console.log(token)
+        // console.log("here")
+        setToken(token);
+        localStorage.setItem('token', token);
+        console.log(token);  
+        setLoggedIn(true);
+        if (response)
+        {
+          function redirect(response)
+          {
+            axios
+            .get('http://localhost:3000/event/all', { 
+              headers: {
+                Authorization: `Bearer ${token}`,
+              }
+            }
+            )
+            .then((response)=>
+            {
+              console.log(response);
+            })
+            .then(() => {
+              alert('Login successful');
+              window.location.href = '/dashboard';
+            })
+
+          }
+          redirect(response);
+          };
+      })
+      .catch((err) => {
+        console.log(err);
+        alert('Login failed');
+      }
+      )
+    } 
+
+  useEffect(() => {
+
+    const storedToken = localStorage.getItem('token');
+    if (storedToken) {
+      setToken(storedToken);
+      setLoggedIn(true);
+      //console.log(storedToken);
+  }}, []);
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Main handleChange={handleChange} formData={formData} handleSubmit={handleSubmit} />} />
         <Route path="/event/*" element={<EventPage />} />
+       <Route path="/signup" element={<SignupPage />} /> 
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/Chatroom" element={<Chatroom />} />
+       <Route path="/confirmation"  element={<Confirmation data={formData} />} />  
       </Routes>
     </BrowserRouter>
   );
 }
-function Main() {
+
+function Main({handleSubmit, formData, handleChange}){
   return (
-    <MainContainer>
-      <WelcomeText>Welcome</WelcomeText>
-      <InputContainer>
-      <Input type="text" placeholder="Email" />
-      <Input type="text" placeholder="Password" />
-      </InputContainer>
-      <ButtonContainer>
-        <Button content="Sign Up">Sign up</Button>
-      </ButtonContainer>
-      <HorizontalRule />
-      <ForgotPassword>Forgot password?</ForgotPassword>
-    </MainContainer>
+    <div>
+    <form className='form-login' onSubmit={handleSubmit}>
+    <WelcomeText>Welcome</WelcomeText>
+    <InputContainer>
+      <Input
+        type="text"
+        placeholder="Username"
+        name="username"
+        value={formData.username}
+        onChange={handleChange}
+      />
+      
+      <Input
+        type="Password"
+        placeholder="Password"
+        name="password"
+        value={formData.password}
+        onChange={handleChange}
+      />
+    </InputContainer>
+    <ButtonContainer>
+        <Button type="submit" value="Log In"> Login </Button>
+      <span className='or'>or</span>
+      <Link to="/signup">
+        <Button type ="submit" value="Sign Up">Sign Up</Button>
+      </Link>
+    </ButtonContainer>
+    <HorizontalRule />
+    <ForgotPassword>Forgot password?</ForgotPassword>
+</form>
+</div>
+
   );
-};
-
-
-const MainContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content:center;
-  flex-direction: column;
-  height: 10vh;
-  width: 50vh;
-  background: rgba(255, 255, 255, 0.30);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(0.5px);
-  border-radius: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.4rem;
-  @media only screen and (max-width:320px)
-  width: 80vw;
-  height: 90vh;
-  hr{
-    margin-buttons: 0.3rem;
-
-  }
-  h4{
-    font-size:small;
-  }
-
-`;
+}
 
 const WelcomeText = styled.h2`
   margin: 3rem 0 2rem 0;
   color:Black;
+`;
+const Input = styled.input`
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 2rem;
+  width: 60%;
+  height: 3rem;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight:lighter;
+  align-item:center;
+  
+  &:focus{
+    display:block;
+    box-shadow: 0 0 0 0.2rem #9abe0;
+    backdrop-filter:blur(0.5px);
+    border-radius:2rem;
+   
+  
+  &::placeholder{
+    color: black;
+    font-weight: lighter;
+    font-size: 1 rem;
+    opacity:50%;    
+  }
+
 `;
 
 const InputContainer = styled.div`
@@ -70,39 +173,43 @@ const InputContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   height: 20%;
-  width: 90%;
+  width: 60vh;
   color: #ffffff;
   border-radius:50px;
-   
+  margin:10px;
 `;
 
 const ButtonContainer = styled.div`
-  margin: 1rem 0 2rem 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;
+width: 100%; /* Make the container take full width */
+
+& > * {
+  margin: 0.5rem 0 0;
+}
 `;
 
 const Button = styled.button`
   background: linear-gradient(to right, #14163c 0%, #03217b 79%);
   text-transform: uppercase;
   letter-spacing: 0.2rem;
-  width: 65%;
+  width: 200px;
   height: 3rem;
   border: none;
-  color: #ffffff; 
+  color: #ffffff;
   border-radius: 2rem;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.2s;
-
+  transition: opacity 0.2s, transform 0.2s;
   &:hover {
     background-color: #1c1f4e;
-    transform: scale(1.05); 
+    transform: scale(1.05);
   }
   &:active {
-    background-color: #0d0f32; 
-    opacity: 0.8; 
+    background-color: #0d0f32;
+    opacity: 0.80;
   }
 `;
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Signup_Page.css';
 import axios from 'axios';
-import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
+import {Link } from 'react-router-dom';
 
 export default function SignupForm() {
   const [formData, setFormData] = useState({
@@ -11,6 +11,7 @@ export default function SignupForm() {
     email: '',
     password: '',
     birthDate: '',
+    
   });
 
   const handleChange = (e) => {
@@ -51,10 +52,11 @@ export default function SignupForm() {
   })
   .then(function(respose){
     console.log(respose)
+    alert("Signup Successful");
   }).catch((err) => {  
     console.log(err)
   })
-  };
+  }
   return (
     <div className="main">
       <form className='signup_form' onSubmit={handleSubmit}>

@@ -2,14 +2,15 @@
   text-align: center;
   background-size: cover;
   background-position: center;
+  background-image: url('/src/images/travelling-image.jpg');
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color:Black;
+  font-family: 'Raleway', sans-serif;
   
-
 }
 h1{
   margin-bottom: 30px;
@@ -19,7 +20,7 @@ h1{
 
 .form-container {
   background: rgba(255, 255, 255, 0.30);
-  backdrop-filter: blur(8.5px);
+  backdrop-filter: blur(3.5px);
   padding: 20px;
   border-radius: 10px;
   max-width: 400px;

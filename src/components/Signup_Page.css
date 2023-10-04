@@ -4,7 +4,7 @@
   background-size: cover;
   background-position: center;
   min-height: 100vh;
-  height: 10vh;
+  height: 1z0vh;
   width: 45vh;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,6 @@
   justify-content: center;
   color:Black;
 }
-
 
 h1 {
   font-size: 24px;

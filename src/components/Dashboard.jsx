@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from 'react';
+import { Link} from 'react-router-dom';
 import axios from 'axios';
 
 function Dashboard() {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [userName, setUserName] = useState('');
+  const [author, setUserName] = useState('');
 
   useEffect(() => {
     const token = localStorage.getItem('token');
 
     if (token) {
-      axios
+     axios 
         .get('http://localhost:3000/event/all', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {
-          if (response.data.username) {
-            setUserName(response.data.username);
+          if (response.data.author) {
+            setUserName(response.data.author);
           }
           setLoggedIn(true);
         })
@@ -51,8 +52,11 @@ function Dashboard() {
 
   return loggedIn ? (
     <div>
-      <h1>Welcome, {userName}!</h1>
+      <h1>Welcome, {author}</h1>
       <button onClick={handleLogout}>Logout</button>
+      <Link to = '/event'>
+      <button>Create Event</button>
+      </Link>
     </div>
   ) : null;
 }

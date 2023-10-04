@@ -31,12 +31,16 @@ function EventPage() {
     }
   }, [] );
   const [formData, setFormData] = useState({
-    author: '',
+    
+    from: '',
+    to: '',
     likes: '',
     comments: '',
     content: '',
     participants: '',
     status: '',
+    traveler: '',
+    description: '',
   });
   const [confirmationData, setConfirmationData] = useState(null);
 
@@ -56,7 +60,11 @@ function EventPage() {
    const token = localStorage.getItem('token');
 
     axios.post('http://localhost:3000/event/addevent', {
-      author: formData.author,
+      from: formData.from,
+      to: formData.to,
+      endDate: formData.endDate,
+      traveler: formData.traveler,
+      description: formData.description,
       likes: formData.likes,
       content: formData.content,
       comments: formData.comments,
@@ -72,14 +80,14 @@ function EventPage() {
       console.log('event created:', response.data);
       setConfirmationData(response.data); 
      // localStorage.setItem('confirmationData', JSON.stringify(response.data));
-    window.location.href ="/event/confirmation"
+     alert("event created sucessfully"), response.data;
+ window.location.href ="/event/confirmation"
       
     })
     .catch((error) => {
       console.error("Error:", error);
 
     }); 
-    
   }
   return loggedIn ?  (
     <div className="App">
@@ -95,8 +103,8 @@ function EventPage() {
                   <label>From where to travel:</label>
                   <input
                     type="text"
-                    name="author"
-                    value={formData.author}
+                    name="from"
+                    value={formData.from}
                     onChange={handleChange}
                     className="input-field" 
                   />
@@ -105,8 +113,8 @@ function EventPage() {
                   <label>To where to travel:</label>
                   <input
                     type="text"
-                    name="status"
-                    value={formData.status}
+                    name="to"
+                    value={formData.to}
                     onChange={handleChange}
                     className="input-field" 
                   />
@@ -115,8 +123,8 @@ function EventPage() {
                   <label>When do we start:</label>
                   <input
                     type="date"
-                    name="likes"
-                    value={formData.likes}
+                    name="endDate"
+                    value={formData.endDate}
                     onChange={handleChange}
                     className="input-field" 
                   />
@@ -135,8 +143,8 @@ function EventPage() {
                   <label>Number of tag along:</label>
                   <input
                     type="Number"
-                    name="participants"
-                    value={formData.participants}
+                    name="traveler"
+                    value={formData.traveler}
                     onChange={handleChange}
                     className="input-field" 
                   />
@@ -145,8 +153,8 @@ function EventPage() {
                   <label>Travel description:</label>
                   <textarea
                   type="text"
-                    name="comments"
-                    value={formData.comments}
+                    name="description"
+                    value={formData.description}
                     onChange={handleChange}
                     className="input-field" 
                   ></textarea>

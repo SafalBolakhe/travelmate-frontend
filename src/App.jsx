@@ -11,6 +11,7 @@ import Dashboard from './components/dashboard';
 import Confirmation from './pages/Confirmation';
 import Chatroom from './components/Chatroom';
 import './App.css';
+import { Hello } from './hello';
 function App() {
   const [formData, setFormData] = useState({
     username: '',
@@ -90,7 +91,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Main handleChange={handleChange} formData={formData} handleSubmit={handleSubmit} />} />
+      <Route path="/" element={<Hello />} />
+        <Route path="/register" element={<Main handleChange={handleChange} formData={formData} handleSubmit={handleSubmit} />} />
         <Route path="/event/*" element={<EventPage />} />
        <Route path="/signup" element={<SignupPage />} /> 
         <Route path="/dashboard" element={<Dashboard />} />
@@ -142,7 +144,6 @@ function Main({handleSubmit, formData, handleChange}){
   );
 }
 const Okay = styled.div`
-  font-family: 'Raleway', sans-serif;
   background-image: url('/src/images/travelling-image.jpg');
   background-size: cover;
   display: flex;

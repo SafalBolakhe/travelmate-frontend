@@ -1,24 +1,13 @@
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-image: url('./images/travelling-image.jpg');
-  background-size: cover;
-  background-position: center;
-  min-height: 100vh;
+.confirmation-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  color: white;
-}
-
-
-.confirmation-container {
+  text-align: center;
+  background-image: url('/src/images/travelling-image.jpg');
   background: rgba(255, 255, 255, 0.30);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(8.5px);
+  backdrop-filter: blur(0.5px);
   padding: 20px;
   border-radius: 10px;
   max-width: 800px;
@@ -27,45 +16,111 @@ body {
 }
 
 .confirmation-header {
-  text-align: center;
   font-size: 24px;
-  margin-bottom: 20px;
+  margin: 10px 0;
+}
+.go-back-button {
+  background-color: #008080; /* Button background color */
+  color: #fff; /* Text color */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Padding around the button text */
+  font-size: 16px; /* Font size */
+  border-radius: 30px; /* Rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+}
+  /* Additional styles for when the button is hovered */
+  .go-back-button:hover {
+    background-color: #005555; /* Button background color on hover */
+  }
+  
+
+.events-container {
+  width: 100%;
+  overflow-x: auto; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.confirmation-details {
-  margin-top: 10px;
+.event-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.confirmation-item {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
+.event-box {
+  background: rgba(255, 255, 255, 0.5);
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: left;
 }
 
-.confirmation-item h2 {
-  margin-top: 0;
+.event-box strong {
+  font-weight: bold;
 }
 
-.tagalong-button{
+.tagalong-button {
   background: linear-gradient(to right, #14163c 0%, #03217b 79%);
   text-transform: uppercase;
   letter-spacing: 0.2rem;
-  width: 65%;
+  width: 100%;
   height: 3rem;
   border: none;
-  color: #ffffff; 
+  color: #ffffff;
   border-radius: 2rem;
   cursor: pointer;
   transition: background-color 0.2s, transform 0.2s;
+  margin-top: 10px;
 }
 
-  .tagalong-button:hover {
-    background-color: #1c1f4e;
-    transform: scale(1.05); 
-  }
-  .tagalong-button:active {
-    background-color: #0d0f32; 
-    opacity: 0.8; 
-  }
+.tagalong-button:hover {
+  background-color: #1c1f4e;
+  transform: scale(1.05);
+}
 
+.tagalong-button:active {
+  background-color: #0d0f32;
+  opacity: 0.8;
+}
+
+.like-button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.comment-button {
+  background-color: #3498db; /* Blue */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left:px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Hover effect for buttons */
+
+.like-button:hover {
+  background-color: #45a049; /* Darker green */
+}
+
+.comment-button:hover {
+  background-color: #2980b9; /* Darker blue */
+}

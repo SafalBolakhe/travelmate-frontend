@@ -12,7 +12,10 @@
   padding: 20px 0;
   background-size: cover;
   height: 60vh;
-  background-image: url('/src/images/snow-mountains-blue-sky-and-lake-panoramic-web-header-.jpg');
+  background-position: cover ;
+  background-image: url('/src/images/photo-1631873504707-70ba49dac7bf.avif');
+
+
 }
 
 .header-content {

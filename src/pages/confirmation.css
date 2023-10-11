@@ -19,6 +19,21 @@
   font-size: 24px;
   margin: 10px 0;
 }
+.go-back-button {
+  background-color: #008080; /* Button background color */
+  color: #fff; /* Text color */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Padding around the button text */
+  font-size: 16px; /* Font size */
+  border-radius: 30px; /* Rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+}
+  /* Additional styles for when the button is hovered */
+  .go-back-button:hover {
+    background-color: #005555; /* Button background color on hover */
+  }
+  
 
 .events-container {
   width: 100%;

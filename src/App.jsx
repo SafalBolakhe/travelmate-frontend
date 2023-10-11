@@ -65,7 +65,7 @@ function App() {
             })
             .then(() => {
               alert('Login successful');
-              window.location.href = '/dashboard';
+              window.location.href = '/';
             })
 
           }
@@ -135,7 +135,6 @@ function Main({handleSubmit, formData, handleChange}){
       </Link>
     </ButtonContainer>
     <HorizontalRule />
-    <ForgotPassword>Forgot password?</ForgotPassword>
 </form>
 </Okay>
 </div>
@@ -144,7 +143,7 @@ function Main({handleSubmit, formData, handleChange}){
   );
 }
 const Okay = styled.div`
-  background-image: url('/src/images/travelling-image.jpg');
+  background-image: url('/src/images/photo-1631873504707-70ba49dac7bf.avif');
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -206,7 +205,7 @@ const Input = styled.input`
     color: black;
     font-weight: lighter;
     font-size: 1 rem;
-    opacity:50%;    
+       
   }
 
 `;

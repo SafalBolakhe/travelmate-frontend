@@ -67,8 +67,11 @@ function Confirmation() {
   };
 
   return loggedIn ? (
-    <div >
+    <div>
       <h1 className="confirmation-header">Tag along</h1>
+      <Link to="/">
+        <button className="go-back-button">Go Back</button>
+      </Link>
       <div className="events-container">
         {confirmationData.length > 0 ? (
           <div className="event-list">
@@ -90,8 +93,6 @@ function Confirmation() {
                     Tag along
                   </button>
                 </Link>
-                <button className="like-button">Like</button>
-                <button className="comment-button">Comment</button>
               </div>
             ))}
           </div>

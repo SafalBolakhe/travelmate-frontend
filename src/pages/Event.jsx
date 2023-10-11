@@ -89,8 +89,51 @@ function EventPage() {
 
     }); 
   }
+  const handleLogout = () => {
+    axios
+      .post(
+        'http://localhost:3000/auth/logout',
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        }
+      )
+      .then(() => {
+        localStorage.removeItem('token');
+        window.location.href = '/';
+      })
+      .catch((error) => {
+        console.error('Logout failed', error);
+      });
+  };
   return loggedIn ?  (
+
     <div className="App">
+      
+      
+        <div className="header-content">
+          <h1 className="logo">Travel Mate</h1>
+          <nav className="nav-links">
+          <ul>
+              {loggedIn && (
+                <>
+                //  <li><Link to="/event" className="nav-link">Create Event</Link></li>
+                  <li><Link to="/event/confirmation" className="nav-link">Tagalong</Link></li>
+                </>
+              )}
+              <li>
+                {loggedIn ? (
+                  <button className="login-btn" onClick={handleLogout}>Logout</button>
+                ) : (
+                  <Link to="/register" className="login-btn">Login</Link>
+                )}
+              </li>
+            </ul>
+          </nav>
+        </div>
+     
       <Routes>
       <Route path="/confirmation" element={<Confirmation />} />
         <Route 
@@ -159,6 +202,10 @@ function EventPage() {
                     className="input-field" 
                   ></textarea>
                 </div>
+
+                <Link to="/">
+        <button className="go-back-button">Go Back</button>
+      </Link>
                
   <button className='post-button' type="submit">Post Plan</button>
 

@@ -112,9 +112,11 @@ function EventPage() {
 
     <div className="App">
       
-      
-        <div className="header-content">
-          <h1 className="logo">Travel Mate</h1>
+      {/** AAYUSHFRONTEND */}
+      {/* Copy from here till */}
+      <div className="navbar"> 
+        <div className="navbar-content">
+          <Link to="/" className="logo"><h1 className="logo">Travel Mate</h1></Link>
           <nav className="nav-links">
           <ul>
               {loggedIn && (
@@ -125,14 +127,17 @@ function EventPage() {
               )}
               <li>
                 {loggedIn ? (
-                  <button className="login-btn" onClick={handleLogout}>Logout</button>
+                  <button className="login-butt" onClick={handleLogout}>Logout</button>
                 ) : (
-                  <Link to="/register" className="login-btn">Login</Link>
+                  <Link to="/register" className="login-butt">Login</Link>
                 )}
               </li>
             </ul>
           </nav>
         </div>
+      </div>
+       {/* HERE */}
+      {/** AAYUSHFRONTEND */}
      
       <Routes>
       <Route path="/confirmation" element={<Confirmation />} />
@@ -199,7 +204,7 @@ function EventPage() {
                     name="description"
                     value={formData.description}
                     onChange={handleChange}
-                    className="input-field" 
+                    className="input-text" /**AAYUSHFRONTEND */
                   ></textarea>
                 </div>
 

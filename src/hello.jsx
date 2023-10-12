@@ -62,7 +62,7 @@ export const Hello = () => {
     <div className="main-container">
       <header className="header">
         <div className="header-content">
-          <h1 className="logo">Travel Mate</h1>
+        <Link to="/" className="logo"><h1 className="logo">Travel Mate</h1></Link>{/* AAYUSHFRONTEND */}
           <nav className="nav-links">
           <ul>
               {loggedIn && (

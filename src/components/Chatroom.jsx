@@ -1,6 +1,36 @@
-import React, { useState } from "react";
+ /*AAYUSHFRONTEND*/
+ /* THIS ENTIRE THING */
+
+import React, { useEffect, useState } from 'react';
+import { Route, Routes, Link } from 'react-router-dom'; 
 import './chatroom.css';
+import axios from 'axios';
 function Chatroom() {
+
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      axios
+        .get('http://localhost:3000/event/all', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then(() => {
+
+          setLoggedIn(true);
+        })
+        .catch(() => {
+
+          setLoggedIn(false);
+        });
+    } else {
+      setLoggedIn(false);
+    }
+  }, [] );
   // State to store travel descriptions
   const [travelDescriptions, setTravelDescriptions] = useState([]);
 
@@ -19,8 +49,58 @@ function Chatroom() {
     setChatMessages([...chatMessages, message]);
   };
 
-  return (
+  const handleLogout = () => {
+    axios
+      .post(
+        'http://localhost:3000/auth/logout',
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        }
+      )
+      .then(() => {
+        localStorage.removeItem('token');
+        window.location.href = '/';
+      })
+      .catch((error) => {
+        console.error('Logout failed', error);
+      });
+  };
+  return loggedIn ?  (
+    
     <div className="chatroom-container">
+
+      {/** AAYUSHFRONTEND */}
+      {/* Copy from here till */}
+      <div className="navbar"> 
+        <div className="navbar-content">
+          <Link to="/" className="logo"><h1 className="logo">Travel Mate</h1></Link>
+          <nav className="nav-links">
+          <ul>
+              {loggedIn && (
+                <>
+                //  <li><Link to="/event" className="nav-link">Create Event</Link></li>
+                  <li><Link to="/event/confirmation" className="nav-link">Tagalong</Link></li>
+                </>
+              )}
+              <li>
+                {loggedIn ? (
+                  <button className="login-butt" onClick={handleLogout}>Logout</button>
+                ) : (
+                  <Link to="/register" className="login-butt">Login</Link>
+                )}
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+       {/* HERE */}
+      {/** AAYUSHFRONTEND */}
+
+      <div className="travel-chat-container">
+
       <div className="travel-description">
         <h2>Travel Description</h2>
         <ul>
@@ -30,13 +110,16 @@ function Chatroom() {
         </ul>
       </div>
       <div className="chat-ui">
+        <div className="headerDiv">
         <h2>Chat System UI</h2>
+
         <div className="chat-messages">
           <ul>
             {chatMessages.map((message, index) => (
               <li key={index}>{message}</li>
             ))}
           </ul>
+        </div>
         </div>
         <div className="chat-input">
           {/* Add chat input and send button here */}
@@ -54,8 +137,9 @@ function Chatroom() {
           </button>
         </div>
       </div>
+      </div>
     </div>
-  );
+  ): null; /**AAYUSHFRONTEND */
 }
 
 export default Chatroom;

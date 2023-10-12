@@ -20,14 +20,21 @@
   margin: 10px 0;
 }
 .go-back-button {
-  background-color: #008080; /* Button background color */
-  color: #fff; /* Text color */
-  border: none; /* Remove border */
-  padding: 10px 20px; /* Padding around the button text */
-  font-size: 16px; /* Font size */
-  border-radius: 30px; /* Rounded corners */
-  cursor: pointer; /* Change cursor to pointer on hover */
-  transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+  /* AAYUSHFRONTEND */
+  /*REPLACED THE OLD ONE WITH THE ONE BELOW*/
+
+  /* AAYUSHFRONTEND */
+  background-color: #008080;
+  color: #fff;
+  border: 1px solid #004545;
+  padding: 15px 40px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  margin: 0 5px 5px 5px;
+  transition: background-color 0.3s ease;
+  height: 20%;
+
 }
   /* Additional styles for when the button is hovered */
   .go-back-button:hover {

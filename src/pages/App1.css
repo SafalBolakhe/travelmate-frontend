@@ -7,11 +7,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */  /* AAYUSHFRONTEND */ /*COMMENT THIS OUT*/
   color:Black;
   font-family: 'Raleway', sans-serif;
-  
 }
+
 h1{
   margin-bottom: 30px;
   font-family: 'Raleway', sans-serif;
@@ -50,6 +50,24 @@ h1{
   font-weight:lighter;
 }
 
+.input-text {
+  width: 90%;
+  padding: 10px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+  margin-top: 5px;
+  border-radius: 2rem;
+  width: 90%;
+  height: 9rem;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  font-size: rem;
+  font-weight:lighter;
+  resize: none;
+}
+
 .post-button {
   background: linear-gradient(to right, #14163c 0%, #03217b 79%);
   text-transform: uppercase;
@@ -71,4 +89,52 @@ h1{
     background-color: #0d0f32; 
     opacity: 0.8; 
   }
+
+
+
+
+/* AAYUSHFRONTEND */
+/* FROM HERE BELOW */
+.navbar {
+  background-color: #008080;
+  color: #fff;
+  padding: 0px 0;
+  height: 12vh;
+  background-position: cover ;
+  background-color: rgba(0, 0, 0, 0.2); /* The last value (0.2) controls transparency */
+  padding: 20px; /* Add padding or adjust as needed */
+  width: 100%;
+  margin-bottom: 3vh;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 36px;
+  font-weight: bold;
+  text-decoration: none; /* AAYUSHFRONTEND */
+  color: white; /* AAYUSHFRONTEND */
+  margin: 5px 0 0 10px; /* AAYUSHFRONTEND */
+}
+
+.login-butt {
+  background-color: #008080;
+  color: #fff;
+  border: 1px solid #004545;
+  padding: 15px 40px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  margin: 0 5px 0 5px;
+  transition: background-color 0.3s ease;
+  height: 20%;
+}
+.login-butt:hover{
+  transform: perspective(1px) scale3d(1.05, 1.05, 1) translateZ(0);
+  background-color: #005555; 
+}
 

@@ -123,8 +123,8 @@ export default function SignupForm() {
       </div> */}
         <input className="login_button" type="submit" value="Sign Up" />
         <div className="signup">
-          Already a user? 
-          <Link to="/">
+          Already a user?
+          <Link to="/register">            {/* AAYUSHFRONTEND THE ROUTE WAS WRONG*/}
           <span> Login</span>
           </Link>
         </div>

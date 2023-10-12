@@ -90,7 +90,7 @@ function Confirmation() {
                     className="tagalong-button"
                     onClick={() => handleTagAlong(event._id, event.author)}
                   >
-                    Tag along
+                    Chat
                   </button>
                 </Link>
               </div>

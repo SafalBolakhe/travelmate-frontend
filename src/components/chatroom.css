@@ -1,12 +1,24 @@
+ /*AAYUSHFRONTEND*/
+ /* THIS ENTIRE THING */
+ /* PS: THERE IS A NEW PHOTO AND IT IS INSIDE THE IMAGES FOLDER */
+
 
 .chatroom-container {
     display: flex;
-    justify-content: space-between;
-    padding: 20px;
+    flex-direction: column;
     border: 1px solid #ccc;
-    width: 100vh;
-    min-height: 50vh;
-    
+    width: 100%; 
+    min-height: 100vh;
+    background-image: url('/src/images/daniel-leone-g30P1zcOzXo-unsplash.jpg');  /*THIS IS THE NEW PHOTO*/
+    background-size: cover;
+  }
+
+  .travel-chat-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;  
+  min-height: 80vh;
+  padding: 20px;
   }
   
   .travel-description {
@@ -15,6 +27,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
+    background-color: rgba(255, 255, 255, 0.5); /* The last value (0.2) controls transparency */
   }
   
   .travel-description h2 {
@@ -37,6 +50,16 @@
     padding: 10px;
     border: 1px solid #ccc;
     background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.5); /* The last value (0.2) controls transparency */
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+  }
+
+  .headerDiv{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
   }
   
   .chat-ui h2 {
@@ -52,6 +75,7 @@
     overflow-y: auto;
     border: 1px solid #ccc;
     padding: 10px;
+    flex: 1;
   }
   
   .chat-messages li {
